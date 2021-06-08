@@ -13,7 +13,7 @@ const auth = (req, res, next) => {
 
   try {
     // верифицируем токен
-    payload = jwt.verify(token, '41452244c0ff5e928b37b9ced5a7670f52fe8b5a7aa431eb88a0ed06ad321295');
+    payload = jwt.verify(token, process.env.JWT_SECRET);
   } catch (err) {
     throw new AuthError('Необходима авторизация');
   }
